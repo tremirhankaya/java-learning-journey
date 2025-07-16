@@ -8,6 +8,9 @@
 *.nar
 hs_err_pid*
 replay_pid*
+.idea/
+out/
+*.iml
 
 ##############################
 ## Maven
