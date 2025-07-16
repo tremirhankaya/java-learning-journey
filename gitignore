@@ -11,6 +11,15 @@ replay_pid*
 .idea/
 out/
 *.iml
+# out klasörü (tüm alt klasörlerdeki out klasörlerini ignore eder)
+**/out/
+
+# .idea klasörü (tüm alt klasörlerde)
+**/.idea/
+
+# Tüm .iml dosyaları (her yerde)
+*.iml
+
 
 ##############################
 ## Maven
