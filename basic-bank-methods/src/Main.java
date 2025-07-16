@@ -2,21 +2,19 @@ import java.util.Scanner;
 
 public class Main {
     static double balance = 1000;
-    static int index=0;
-    static int choice=1;
+    static int choice = 1;
 
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
 
-        while(choice==1){
+        while (choice == 1) {
 
-                    System.out.println("Select an operation:");
-                    System.out.println("1 - Deposit");
-                    System.out.println("2 - Withdraw");
-                    System.out.println("3 - Show Balance");
-                    System.out.println("0 - Exit");
-                    choice = input.nextInt();
-
+            System.out.println("Select an operation:");
+            System.out.println("1 - Deposit");
+            System.out.println("2 - Withdraw");
+            System.out.println("3 - Show Balance");
+            System.out.println("0 - Exit");
+            choice = input.nextInt();
 
 
             switch (choice) {
@@ -28,13 +26,13 @@ public class Main {
                     System.out.println("Enter amount:");
                     double amount = input.nextDouble();
                     Deposit(amount);
-                    System.out.println("Balance: "+GetBalance());
+                    System.out.println("Balance: " + GetBalance());
                     break;
                 case 2:
                     System.out.println("Enter amount:");
                     double amount2 = input.nextDouble();
                     Withdraw(amount2);
-                    System.out.println("Balance: "+GetBalance());
+                    System.out.println("Balance: " + GetBalance());
                     break;
                 case 3:
                     System.out.println(GetBalance());
@@ -46,10 +44,6 @@ public class Main {
             choice = input.nextInt();
 
         }
-
-
-
-
 
 
     }
@@ -75,7 +69,6 @@ public class Main {
     public static double GetBalance() {
         return balance;
     }
-
 
 
 }
