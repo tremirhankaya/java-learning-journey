@@ -1,0 +1,14 @@
+out/
+.idea/
+*.iml
+dataypes/
+variables/
+switch2/
+# .idea klasörleri (her yerde)
+**/.idea/
+
+# out klasörleri (her yerde)
+**/out/
+
+# .iml dosyaları (her yerde)
+**/*.iml
