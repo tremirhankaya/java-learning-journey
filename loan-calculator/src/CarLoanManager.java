@@ -4,9 +4,6 @@ public class CarLoanManager extends BaseLoanManager {
     public CarLoanManager() {
     }
 
-    public CarLoanManager(double principal, double rate, int termMonths, double insuranceFee) {
-        super(principal, rate, termMonths);
-    }
 
     public double getInsuranceFee() {
         return insuranceFee;
