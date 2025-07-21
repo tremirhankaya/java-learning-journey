@@ -56,6 +56,10 @@ public class Main {
                 case 3:
                     System.out.println("Enter ID");
                     id = input.nextInt();
+                    if (cargoManager.findCargo(id) == null){
+                        System.out.println("Cargo Not Found");
+                        break;
+                    }
                     cargoManager.CargoDelete(id);
 
 
@@ -67,10 +71,16 @@ public class Main {
                 case 5:
                     System.out.println("Enter ID");
                     id = input.nextInt();
+
+                    if (cargoManager.findCargo(id) == null){
+                        System.out.println("Wrong ID");
+                        break;
+
+                    }
                     System.out.println("Enter a new status ");
                     cargoStatus = input.next();
                     cargoManager.updateCargo(id, cargoStatus);
-                    System.out.println("Cargo has been updated");
+
                 default:
                     System.out.println("Invalid input");
                     break;
