@@ -42,10 +42,16 @@ public class Main {
                 case 2:
                     System.out.println("Enter ID");
                     id = input.nextInt();
-                    System.out.println("----------------------------------");
-                    System.out.println(cargoManager.findCargo(id).getStatus());
-                    System.out.println("----------------------------------");
+                    if (cargoManager.findCargo(id) != null){
+                        System.out.println("----------------------------------");
+                        System.out.println(cargoManager.findCargo(id).getStatus());
+                        System.out.println("----------------------------------");
+
+                    }else{
+                        System.out.println("Wrong ID");
+                    }
                     break;
+
 
                 case 3:
                     System.out.println("Enter ID");
