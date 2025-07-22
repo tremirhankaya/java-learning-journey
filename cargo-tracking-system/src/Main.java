@@ -8,31 +8,40 @@ public class Main {
         String name;
         String address;
         String cargoStatus;
+        int choice;
         CargoManager cargoManager = new CargoManager();
         Scanner input = new Scanner(System.in);
         while (true) {
-            System.out.println("Please make a selection");
-            System.out.println("1-Add Cargo.");
-            System.out.println("2-Where is my Cargo?");
-            System.out.println("3-Delete Cargo");
-            System.out.println("4-List Cargos");
-            System.out.println("5-Update Cargo");
-            System.out.println("6-Exit");
-            int choice = input.nextInt();
+            choice = readInt(input, """
+                    Please make a selection
+                    1-Add Cargo.
+                    2-Where is my Cargo?
+                    3-Delete Cargo
+                    4-List Cargos
+                    5-Update Cargo
+                    6-Exit
+                    """);
+
 
             switch (choice) {
                 case 1:
-                    System.out.println("Enter ID");
-                    id = input.nextInt();
+
+                    id = readInt(input, "Enter ID: ");
+
+
                     if (cargoManager.findCargo(id) != null) {
                         System.out.println("Cargo is already exists");
                         break;
                     }
 
+
                     System.out.println("Enter receiver name");
                     name = input.next();
                     System.out.println("Enter destination");
                     address = input.next();
+                    input.nextLine();
+
+
                     BaseCargo baseCargo = new BaseCargo();
                     baseCargo.setInformation(id, name, address);
                     cargoManager.CargoAdd(baseCargo);
@@ -40,23 +49,21 @@ public class Main {
 
                     break;
                 case 2:
-                    System.out.println("Enter ID");
-                    id = input.nextInt();
-                    if (cargoManager.findCargo(id) != null){
+                    id = readInt(input, "Enter ID: ");
+                    if (cargoManager.findCargo(id) != null) {
                         System.out.println("----------------------------------");
                         System.out.println(cargoManager.findCargo(id).getStatus());
                         System.out.println("----------------------------------");
 
-                    }else{
+                    } else {
                         System.out.println("Wrong ID");
                     }
                     break;
 
 
                 case 3:
-                    System.out.println("Enter ID");
-                    id = input.nextInt();
-                    if (cargoManager.findCargo(id) == null){
+                    id = readInt(input, "Enter ID: ");
+                    if (cargoManager.findCargo(id) == null) {
                         System.out.println("Cargo Not Found");
                         break;
                     }
@@ -69,10 +76,8 @@ public class Main {
                     break;
 
                 case 5:
-                    System.out.println("Enter ID");
-                    id = input.nextInt();
-
-                    if (cargoManager.findCargo(id) == null){
+                    id = readInt(input, "Enter ID: ");
+                    if (cargoManager.findCargo(id) == null) {
                         System.out.println("Wrong ID");
                         break;
 
@@ -80,11 +85,29 @@ public class Main {
                     System.out.println("Enter a new status ");
                     cargoStatus = input.next();
                     cargoManager.updateCargo(id, cargoStatus);
+                    break;
 
                 default:
-                    System.out.println("Invalid input");
+                    System.out.println("Please enter a number between 1 and 6.");
                     break;
             }
         }
     }
+
+    private static int readInt(Scanner input, String prompt) {
+        while (true) {
+            try {
+                System.out.print(prompt);
+                int value = input.nextInt();
+                return value;
+
+
+            } catch (Exception e) {
+                System.out.println("Invalid input. Try again!");
+                input.nextLine();
+            }
+        }
+    }
+
+
 }
