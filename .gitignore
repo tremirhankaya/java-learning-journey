@@ -12,3 +12,4 @@ switch2/
 
 # .iml dosyaları (her yerde)
 **/*.iml
+/target/

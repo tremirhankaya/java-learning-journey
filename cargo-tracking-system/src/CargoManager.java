@@ -1,67 +1,44 @@
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.ListIterator;
+import java.util.List;
 
 public class CargoManager {
 
-    ArrayList<BaseCargo> CargoList = new ArrayList<>();
+    private CargoDAO cargoDAO = new CargoDAO();
 
-    public void CargoAdd(BaseCargo baseCargo) {
-        ListIterator<BaseCargo> iterator = CargoList.listIterator();
-
-
-        while (iterator.hasNext()) {
-            BaseCargo cargo = iterator.next();
-            if (cargo.getId() == baseCargo.getId()) {
-                System.out.println("Already exists");
-                return;
-
-
-            }
-        }
-        CargoList.add(baseCargo);
-        System.out.println("Added " + baseCargo.getId());
-
+    public CargoManager() {
     }
 
-    public void CargoDelete(int id) {
-        Iterator<BaseCargo> iterator = CargoList.iterator();
-
-        while (iterator.hasNext()) {
-            BaseCargo cargo = iterator.next();
-            if (cargo.getId() == id) {
-                iterator.remove();
-                System.out.println("Cargo deleted");
-                return;
-            }
+    public void addCargo(BaseCargo baseCargo) {
+        if (cargoDAO.findCargoById(baseCargo.getId()) != null) {
+            System.out.println("Cargo with this ID already exists. Cannot add duplicate.");
+            return;
         }
+        cargoDAO.addCargo(baseCargo);
+    }
 
+    public void deleteCargo(int id) {
+        cargoDAO.deleteCargo(id);
     }
 
     public void listCargos() {
-        for (BaseCargo baseCargo : CargoList) {
+        List<BaseCargo> cargoList = cargoDAO.getAllCargos(); //
+        if (cargoList.isEmpty()) {
+            System.out.println("No cargos to display.");
+            return;
+        }
+        for (BaseCargo baseCargo : cargoList) {
             baseCargo.showInfo();
         }
     }
 
-    public void updateCargo(int id, String newStatus) {
-        for (BaseCargo k : CargoList) {
-            if (k.getId() == id) {
-                k.setStatus(newStatus);
-            } else {
-                System.out.println("Wrong ID");
-            }
-
+    public void updateCargoStatus(int id, String newStatus) {
+        if (cargoDAO.findCargoById(id) == null) {
+            System.out.println("Cargo not found with ID: " + id + ". Cannot update.");
+            return;
         }
+        cargoDAO.updateCargoStatus(id, newStatus);
     }
 
     public BaseCargo findCargo(int id) {
-        for (BaseCargo baseCargo : CargoList) {
-            if (baseCargo.getId() == id) {
-                return baseCargo;
-            }
-        }
-        return null;
+        return cargoDAO.findCargoById(id);
     }
-
 }
