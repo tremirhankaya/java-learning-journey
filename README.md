@@ -1,4 +1,4 @@
-Elbette, işte GitHub'da kullanabileceğiniz, İngilizce olarak hazırlanmış README dosyası. Bu versiyon, aynı yapı ve içeriği koruyarak İngilizce konuşan bir kitle için optimize edilmiştir.
+
 
 # Java Learning Journey 🚀
 
