@@ -29,27 +29,3 @@ Here you'll find practical examples on a variety of topics:
 * **Number Guessing Games:** Interactive games to practice logic and control flow.
 * **File Operations:** Examples of reading from and writing to files.
 
-🗂 Repository Structure
-The projects are organized into individual directories. Each directory is a self-contained example of a specific topic.
-
-/java-learning-journey
-├── abstrack-classes-database/
-├── array-sort-and-average/
-├── basic-bank-methods/
-├── basic-calculator-if-only/
-├── cargo-tracking-system/
-├── check-palindrome/
-├── encapsulation-example/
-├── friendly-number-check/
-├── grade-checker-with-switch-and-if/
-├── loan-calculator/
-├── notification-system-polymorphism/
-├── oop-class-game-example-java/
-├── payment-system-interface/
-├── perfect-number-check/
-├── price-calculator-abstrack/
-├── prime-number-check/
-├── switch-exam-grade-example/
-├── think-a-number/
-├── working-with-files/
-└── README.md
