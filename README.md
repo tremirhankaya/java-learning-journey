@@ -1,12 +1,12 @@
 
 
-# Java Learning Journey 🚀
+# Java Learning Journey 
 
 This repository documents my personal journey of learning the **Java programming language**. It's a collection of **practice examples, mini-projects, and exercises** that cover everything from basic programming concepts to Object-Oriented Programming (OOP) and database integration.
 
 Each project is designed to solidify my understanding of key concepts and build practical skills. Feel free to explore and use these examples as a resource for your own learning!
 
-## 📚 Topics Covered
+##  Topics Covered
 
 Here you'll find practical examples on a variety of topics:
 
